@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { SettingsViews } from 'librechat-data-provider';
+import { SettingsViews, LocalStorageKeys } from 'librechat-data-provider';
 import { atomWithLocalStorage } from '~/store/utils';
 import type { TOptionSettings } from '~/common';
 
@@ -32,11 +32,14 @@ const localStorageAtoms = {
   forkSetting: atomWithLocalStorage('forkSetting', ''),
   splitAtTarget: atomWithLocalStorage('splitAtTarget', false),
 
-  rememberForkOption: atomWithLocalStorage('rememberForkOption', true),
+  rememberDefaultFork: atomWithLocalStorage(LocalStorageKeys.REMEMBER_FORK_OPTION, false),
 
   // Beta features settings
   modularChat: atomWithLocalStorage('modularChat', true),
   LaTeXParsing: atomWithLocalStorage('LaTeXParsing', true),
+  codeArtifacts: atomWithLocalStorage('codeArtifacts', false),
+  includeShadcnui: atomWithLocalStorage('includeShadcnui', false),
+  customPromptMode: atomWithLocalStorage('customPromptMode', false),
 
   // Commands settings
   atCommand: atomWithLocalStorage('atCommand', true),
